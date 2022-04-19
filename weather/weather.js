@@ -10,16 +10,14 @@ var radarDisplayOptions = {
 var radar = L.tileLayer.wms(radarUrl, radarDisplayOptions).addTo(map);
 var weatherAlertsUrl = 'https://api.weather.gov/alerts/active?region_type=land';
 $.getJSON(weatherAlertsUrl, function(data) {
-  // add more code here later
+ L.geoJSON(data).addTo(map);
 });
-L.geoJSON(data).addTo(map);
 L.geoJSON(data, {
   style: { color: 'orange' },
-  // more options go here
-}).addTo(map);
-onEachFeature: function(feature, layer) {
+  onEachFeature: function(feature, layer) {
   layer.bindPopup(feature.properties.headline);
 }
+}).addTo(map);
 style: function(feature){
   var alertColor = 'orange';
   if (feature.properties.severity === 'Severe') alertColor = 'red';
