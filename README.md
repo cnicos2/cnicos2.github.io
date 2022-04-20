@@ -1,5 +1,5 @@
 # cnicos2.github.io
-Maps for GEOG 4046 assignment 10 & 11
+Maps for GEOG 4046 assignments 10 & 11
 
 ## Current Weather
 A map showing weather radar and alerts from the National Weather Service
