@@ -20,13 +20,14 @@ $.getJSON(weatherAlertsUrl, function(data) {
 L.geoJSON(data, {
   // Color all alert polygons orange, but color extreme polygons pink
   style: function(feature){
-  var alertColor = 'orange';
-  if (feature.properties.severity === 'Severe') alertColor = 'red';
-  if (feature.properties.extreme === 'Extreme') alertColor = 'pink';
-  return { color: alertColor };
+    var alertColor = 'orange';
+    if (feature.properties.severity === 'Severe') alertColor = 'red';
+    if (feature.properties.extreme === 'Extreme') alertColor = 'pink';
+    return { color: alertColor };
 },
   //Add a popup on each feature showing the NWS alert headline
   onEachFeature: function(feature, layer) {
   layer.bindPopup(feature.properties.headline);
-}
-}).addTo(map);
+    }
+  }).addTo(map);
+});
