@@ -30,4 +30,3 @@ L.geoJSON(data, {
   layer.bindPopup(feature.properties.headline);
 }
 }).addTo(map);
-});
